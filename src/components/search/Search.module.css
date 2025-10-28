@@ -1,0 +1,29 @@
+.input {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    color: var(--text-color);
+    background-color: #FCFCFD;
+    border: 1px solid #EEE;
+    box-shadow: 15px 20px 45px 0px rgba(233, 233, 233, 0.25);
+    border-radius: 10px;
+    padding: 16px 30px 16px 44px;
+    border: 1px solid #EFEFEF;
+        min-width: 180px;
+
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-wrapper img {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+.input::placeholder {
+    color: #9AA0B4;
+}
