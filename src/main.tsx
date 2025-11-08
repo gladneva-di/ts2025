@@ -11,25 +11,26 @@ import axios from 'axios';
 import { AuthLayout } from './layout/Auth/AuthLayout.tsx';
 import { Login } from './pages/Login/Login.tsx';
 import { Register } from './pages/Register/Register.tsx';
+import { RequireAuth } from './helpers/Require.auth.tsx';
 
-const Menu = lazy(() => import('./pages/Menu/Menu.tsx'))
+const Menu = lazy(() => import('./pages/Menu/Menu.tsx'));
 
 
 const router = createBrowserRouter([
   {
-    path: '/',
-    element: <Layout />,
+    path: `${import.meta.env.BASE_URL}`,
+    element: <RequireAuth><Layout /></RequireAuth>,
     children: [
       {
-        path: '/',
+        path: `${import.meta.env.BASE_URL}`,
         element: <Suspense fallback={<>Загрузка...</>}><Menu /></Suspense>
       },
       {
-        path: '/cart',
+        path: `${import.meta.env.BASE_URL}/cart`,
         element: <Cart />
       },
       {
-        path: '/product/:id',
+        path: `${import.meta.env.BASE_URL}/product/:id`,
         element: <Product />,
         errorElement: <>Ошибка</>,
         loader: async ({ params }) => {
@@ -38,7 +39,7 @@ const router = createBrowserRouter([
               resolve();
             }, 2000);
           })
-          const { data } = await axios.get(`${PREFIX}/productss/${params.id}`);
+          const { data } = await axios.get(`${PREFIX}/products/${params.id}`);
           console.log(data);
           return data;
         }
@@ -46,16 +47,16 @@ const router = createBrowserRouter([
     ]
   },
   {
-    path: '/auth',
-    element: <AuthLayout/>,
+    path: `${import.meta.env.BASE_URL}/auth`,
+    element: <AuthLayout />,
     children: [
       {
         path: 'login',
-        element: <Login/>,
+        element: <Login />,
       },
       {
         path: 'register',
-        element: <Register/>,
+        element: <Register />,
       }
     ]
   },

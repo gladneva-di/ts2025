@@ -4,19 +4,19 @@ import type { ProductCardProps } from './ProductCard.props';
 
 function ProductCard(props: ProductCardProps) {
     return (
-        <Link to={`/product/${props.id}`} className={styles['link']}>
+        <Link to={`/ts2025/product/${props.id}`} className={styles['link']}>
             <div className={styles['card']}>
-                <div className={styles['head']} style={{ backgroundImage: `url('./card-bg.png')` }}>
+                <div className={styles['head']} style={{ backgroundImage: `url('/ts2025/card-bg.png')` }}>
                     <div className={styles['price']}>
                         {props.price}&nbsp;
                         <span className={styles['currency']}>₽</span>
                     </div>
                     <button className={styles['add-to-cart']}>
-                        <img src='./product_cart.svg' alt='Иконка добавить' />
+                        <img src='/ts2025/product_cart.svg' alt='Иконка добавить' />
                     </button>
                     <div className={styles['raiting']}>
                         {props.rating}
-                        <img src='./star.svg' alt='Иконка звезды' />
+                        <img src='/ts2025/star.svg' alt='Иконка звезды' />
                     </div>
                 </div>
                 <div className={styles['footer']}>

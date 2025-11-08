@@ -6,7 +6,7 @@ export function AuthLayout() {
 
     return <div className={styles['layout']}>
         <div className={styles['logo']}>
-            <img src='/logo.svg' className={styles['logo']} alt='Логотип компании'/>
+            <img src='/ts2025/logo.svg' className={styles['logo']} alt='Логотип компании'/>
         </div>
         <div className={styles['content']}>
             <Outlet />

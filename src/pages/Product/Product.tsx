@@ -5,7 +5,7 @@ export function Product() {
 
     // const { id } = useParams();
     const data = useLoaderData() as Product;
-          throw new Error('sdfg');
+        //   throw new Error('sdfg');
 
     return <>Product - {data.name}</>
 }
